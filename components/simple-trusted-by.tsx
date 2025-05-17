@@ -3,13 +3,13 @@ import Image from "next/image"
 export function SimpleTrustedBy() {
   // Company logos data - simplified version
   const companies = [
-    { name: "Intercom", logo: "/generic-chat-bubble-logo.png" },
-    { name: "Trigify.io", logo: "/trigify-logo.png" },
-    { name: "Clay", logo: "/clay-logo.png" },
-    { name: "ContactOut", logo: "/placeholder-9tuly.png" },
-    { name: "Coldiq", logo: "/placeholder-bvywn.png" },
-    { name: "Replicate", logo: "/placeholder-tuk23.png" },
-    { name: "OneAway", logo: "/placeholder-jn5fr.png" },
+    { name: "Intercom", logo: "/getmorepacklinks.png" },
+    { name: "Trigify.io", logo: "/blogosocial.webp" },
+    { name: "Clay", logo: "/getmoreseo.webp" },
+    { name: "Clay", logo: "/mark.png" },
+    { name: "Clay", logo: "/skill.png" },
+
+
   ]
 
   return (

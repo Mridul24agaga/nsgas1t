@@ -1,45 +1,46 @@
 "use client"
 
 import Image from "next/image"
-import { CheckCircle, PenLine, Calendar, Users, BarChart3 } from "lucide-react"
+// No icon imports needed
 
 export function YuktaraFeatureCards() {
   const features = [
     {
-      icon: <CheckCircle className="w-8 h-8 text-purple-600" />,
-      title: "Analyze and optimize your LinkedIn profile",
-      description: "Get personalized recommendations to make your profile stand out and attract the right audience.",
-      color: "#10b981", // green
-      bulletPoints: ["Profile strength analysis", "Keyword optimization", "Competitor benchmarking"],
-    },
-    {
-      icon: <PenLine className="w-8 h-8 text-purple-600" />,
-      title: "Generate high-performing posts in your voice",
+      title: "Elevate Your LinkedIn Profile",
       description:
-        "AI-powered content creation that sounds like you, resonates with your audience, and drives engagement.",
-      color: "#8b5cf6", // purple
-      bulletPoints: ["AI content generation", "Voice matching technology", "Engagement optimization"],
+        "Transform your professional presence with AI-powered optimization that attracts the right connections.",
+      color: "#4AB981", // green
+      bulletPoints: ["Smart profile analysis", "Strategic keyword placement", "Competitive edge insights"],
+      imagePath: "/card1.webp", // You'll replace with your generated image
     },
     {
-      icon: <Calendar className="w-8 h-8 text-purple-600" />,
-      title: "Auto-schedule content for peak engagement",
-      description: "Post at the perfect time when your audience is most active to maximize reach and interaction.",
-      color: "#3b82f6", // blue
-      bulletPoints: ["Optimal time detection", "Automated scheduling", "Cross-platform posting"],
+      title: "Content That Sounds Like You",
+      description: "Effortlessly create posts that reflect your authentic voice and resonate with your audience.",
+      color: "#776BD8", // purple
+      bulletPoints: ["Voice-matched content", "Engagement-optimized posts", "Authentic storytelling"],
+      imagePath: "/card2.webp", // You'll replace with your generated image
     },
     {
-      icon: <Users className="w-8 h-8 text-purple-600" />,
-      title: "Engage meaningfully with your network",
-      description: "Build genuine relationships with smart engagement suggestions and automated follow-ups.",
-      color: "#ec4899", // pink
-      bulletPoints: ["Smart engagement suggestions", "Automated follow-ups", "Relationship tracking"],
+      title: "Perfect Timing, Every Time",
+      description: "Let AI determine when your audience is most active and schedule your content for maximum impact.",
+      color: "#708ADC", // blue
+      bulletPoints: ["Peak engagement timing", "Automated publishing", "Cross-platform coordination"],
+      imagePath: "/card4.webp", // You'll replace with your generated image
     },
     {
-      icon: <BarChart3 className="w-8 h-8 text-purple-600" />,
-      title: "Track performance with deep analytics",
-      description: "Measure your growth, understand what works, and continuously improve your LinkedIn strategy.",
-      color: "#f59e0b", // amber
-      bulletPoints: ["Comprehensive performance metrics", "Content effectiveness analysis", "Growth trend reporting"],
+      title: "Build Genuine Connections",
+      description: "Nurture your network with intelligent engagement suggestions that feel personal and meaningful.",
+      color: "#DD4366", // pink
+      bulletPoints: ["Intelligent conversation starters", "Relationship nurturing", "Network expansion"],
+      imagePath: "/card5.webp", // You'll replace with your generated image
+    },
+    {
+      title: "Data-Driven Growth Strategy",
+      description:
+        "Gain clear insights into what works and continuously refine your LinkedIn presence for optimal results.",
+      color: "#CC9335", // amber
+      bulletPoints: ["Performance visualization", "Content effectiveness metrics", "Growth trajectory insights"],
+      imagePath: "/card6.webp", // You'll replace with your generated image
     },
   ]
 
@@ -55,11 +56,26 @@ export function YuktaraFeatureCards() {
         .feature-card {
           border-radius: 16px;
           overflow: hidden;
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
           display: flex;
           flex-direction: column;
           background: white;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease, border 0.3s ease;
+          border: 1px solid #f0f0f0;
+          position: relative;
+        }
+
+        .feature-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 16px;
+          padding: 2px;
+          background: linear-gradient(45deg, transparent 50%, rgba(139, 92, 246, 0.3), transparent);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0;
+          transition: opacity 0.3s ease;
         }
 
         @media (min-width: 768px) {
@@ -71,13 +87,19 @@ export function YuktaraFeatureCards() {
 
         .feature-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+          border-color: transparent;
+        }
+        
+        .feature-card:hover::before {
+          opacity: 1;
         }
 
         .feature-content {
           padding: 2.5rem;
           display: flex;
           flex-direction: column;
+          z-index: 1;
+          font-family: 'Poppins', sans-serif;
         }
 
         .feature-visual {
@@ -86,12 +108,6 @@ export function YuktaraFeatureCards() {
           justify-content: center;
           overflow: hidden;
           position: relative;
-        }
-
-        .feature-visual img {
-          object-fit: contain;
-          max-width: 100%;
-          height: auto;
         }
 
         .bullet-point {
@@ -109,70 +125,6 @@ export function YuktaraFeatureCards() {
           flex-shrink: 0;
         }
 
-        .cta-button {
-          display: inline-block;
-          background-color: #1e293b;
-          color: white;
-          font-weight: 600;
-          padding: 0.75rem 2rem;
-          border-radius: 9999px;
-          text-align: center;
-          transition: background-color 0.2s ease;
-          text-decoration: none;
-          margin-top: 1.5rem;
-          width: fit-content;
-          white-space: nowrap;
-        }
-
-        .cta-button:hover {
-          background-color: #0f172a;
-        }
-
-        .visual-element {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .visual-content {
-          position: relative;
-          z-index: 10;
-          width: 80%;
-          max-width: 400px;
-        }
-
-        .decoration {
-          position: absolute;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.1);
-          z-index: 1;
-        }
-
-        .decoration-1 {
-          width: 200px;
-          height: 200px;
-          top: -50px;
-          right: -50px;
-        }
-
-        .decoration-2 {
-          width: 150px;
-          height: 150px;
-          bottom: 20px;
-          left: 20px;
-        }
-
-        .decoration-3 {
-          width: 100px;
-          height: 100px;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
         .badge {
           background-color: #f3e8ff;
           color: #9333ea;
@@ -182,18 +134,102 @@ export function YuktaraFeatureCards() {
           display: inline-block;
           margin-bottom: 1.5rem;
         }
+
+        .feature-image-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+          z-index: 2;
+        }
+
+        .feature-image {
+          width: 100%;
+          height: auto;
+          max-width: 400px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-image {
+          transform: translateY(-5px);
+        }
+
+        /* Decorative elements */
+        .visual-decoration {
+          position: absolute;
+          z-index: 1;
+        }
+
+        .decoration-line {
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.1);
+          z-index: 1;
+        }
+
+        .decoration-line-1 {
+          height: 100%;
+          width: 1px;
+          left: 25%;
+          top: 0;
+        }
+
+        .decoration-line-2 {
+          height: 100%;
+          width: 1px;
+          left: 75%;
+          top: 0;
+        }
+
+        .decoration-line-3 {
+          height: 1px;
+          width: 100%;
+          left: 0;
+          top: 25%;
+        }
+
+        .decoration-line-4 {
+          height: 1px;
+          width: 100%;
+          left: 0;
+          top: 75%;
+        }
+
+        .decoration-circle {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          z-index: 1;
+        }
+
+        .decoration-circle-1 {
+          width: 120px;
+          height: 120px;
+          top: -60px;
+          right: -60px;
+        }
+
+        .decoration-circle-2 {
+          width: 80px;
+          height: 80px;
+          bottom: -40px;
+          left: -40px;
+        }
       `}</style>
 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="badge">Meet Yuktara</div>
+          <div className="badge">Introducing Yuktara</div>
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
-            Your End-to-End
+            LinkedIn Success on
             <br />
-            LinkedIn Growth Platform
+            Autopilot
           </h2>
           <p className="text-lg text-black max-w-3xl mx-auto">
-            Built for job seekers, creators, and business developers, YUKTARA helps you:
+            The all-in-one platform that elevates your professional presence without the daily grind.
           </p>
         </div>
 
@@ -201,8 +237,7 @@ export function YuktaraFeatureCards() {
           {features.map((feature, index) => (
             <div key={index} className="feature-card">
               <div className="feature-content md:w-1/2">
-                <div className="mb-2">{feature.icon}</div>
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-4">{feature.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">{feature.title}</h3>
                 <p className="text-black mb-8">{feature.description}</p>
 
                 <div className="mt-auto space-y-2 mb-8">
@@ -213,67 +248,40 @@ export function YuktaraFeatureCards() {
                     </div>
                   ))}
                 </div>
-
-               
               </div>
 
-              <div className="feature-visual md:w-1/2" style={{ backgroundColor: feature.color }}>
-                <div className="visual-element">
-                  <div className="decoration decoration-1"></div>
-                  <div className="decoration decoration-2"></div>
-                  <div className="decoration decoration-3"></div>
+              <div
+                className="feature-visual md:w-1/2"
+                style={{
+                  backgroundColor: feature.color,
+                }}
+              >
+                {/* Decorative elements */}
+                <div className="decoration-line decoration-line-1"></div>
+                <div className="decoration-line decoration-line-2"></div>
+                <div className="decoration-line decoration-line-3"></div>
+                <div className="decoration-line decoration-line-4"></div>
+                <div className="decoration-circle decoration-circle-1"></div>
+                <div className="decoration-circle decoration-circle-2"></div>
 
-                  <div className="visual-content">
-                    {index === 0 && (
-                      <Image
-                        src="/linkedin1.png"
-                        alt="LinkedIn profile optimization"
-                        width={400}
-                        height={300}
-                        className="rounded-lg shadow-lg"
-                      />
-                    )}
-
-                    {index === 1 && (
-                      <Image
-                        src="/linkedin2.png"
-                        alt="AI content generation"
-                        width={400}
-                        height={300}
-                        className="rounded-lg shadow-lg"
-                      />
-                    )}
-
-                    {index === 2 && (
-                      <Image
-                        src="/linkedin3.png"
-                        alt="Content scheduling calendar"
-                        width={400}
-                        height={300}
-                        className="rounded-lg shadow-lg"
-                      />
-                    )}
-
-                    {index === 3 && (
-                      <Image
-                        src="/linkedin4.png"
-                        alt="Network engagement"
-                        width={400}
-                        height={300}
-                        className="rounded-lg shadow-lg"
-                      />
-                    )}
-
-                    {index === 4 && (
-                      <Image
-                        src="/linkedin5.png"
-                        alt="Analytics dashboard"
-                        width={400}
-                        height={300}
-                        className="rounded-lg shadow-lg"
-                      />
-                    )}
-                  </div>
+                {/* Image container */}
+                <div className="feature-image-container">
+                  {/* For now, using placeholder images - replace with your generated images */}
+                  <Image
+                    src={feature.imagePath || "/placeholder.svg"}
+                    alt={feature.title}
+                    width={800}
+                    height={600}
+                    className="feature-image"
+                    // Fallback to placeholder until you have the real images
+                    unoptimized
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = `/placeholder.svg?height=600&width=800&query=${encodeURIComponent(
+                        `Minimalist illustration for ${feature.title} on ${feature.color} background`,
+                      )}`
+                    }}
+                  />
                 </div>
               </div>
             </div>

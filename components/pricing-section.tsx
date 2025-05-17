@@ -1,229 +1,222 @@
 "use client"
 
-import { useState } from "react"
-import { Check } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 
-export default function PricingSection() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
-
+export function PricingSection() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
-      {/* Heading */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold mb-2">Pricing that scales with you</h2>
-        <p className="text-gray-600">
-          Whichever plan you pick, it's free until you love your docs. That's our promise.
-        </p>
-      </div>
-
-      {/* Billing toggle */}
-      <div className="flex justify-center mb-12">
-        <div className="inline-flex items-center bg-gray-100 rounded-full p-1">
-          <button
-            onClick={() => setBillingCycle("monthly")}
-            className={`px-4 py-2 rounded-full text-sm ${
-              billingCycle === "monthly" ? "bg-white shadow-sm" : "text-gray-700"
-            }`}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setBillingCycle("yearly")}
-            className={`px-4 py-2 rounded-full text-sm ${
-              billingCycle === "yearly" ? "bg-white shadow-sm" : "text-gray-700"
-            }`}
-          >
-            Yearly
-            <span className="ml-1 bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5 rounded-full">-20%</span>
-          </button>
+    <section className="bg-white py-20 text-black">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold mb-4">Pricing</h2>
+          <p className="text-gray-600 text-lg">
+            Use Yuktara individually or upgrade to link more accounts and add seats for your team members.
+          </p>
         </div>
-      </div>
 
-      {/* Pricing cards */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {/* Free plan */}
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-blue-600">Free</span>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-4xl font-bold">$0</span>
-              <span className="ml-1 text-gray-500 text-sm">/month</span>
-            </div>
-            <p className="mt-2 text-sm text-amber-600 font-medium">Perfect for individual users</p>
-
-            <div className="mt-6">
-              <button className="w-full py-3 px-4 rounded-full text-sm font-medium bg-white border border-gray-300 hover:bg-gray-50 text-gray-900">
-                Start Free
-              </button>
-            </div>
-
-            <div className="mt-8">
-              <p className="text-sm font-medium text-gray-900 mb-4">Everything in Pro +</p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Custom domain</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">SEO-optimizations</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Auto-generated API docs</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Built-in components library</p>
-                </li>
-              </ul>
-            </div>
+        <div className="relative">
+          {/* Plus icon in the top left */}
+          <div className="absolute -top-4 -left-4 text-gray-300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </div>
-        </div>
 
-        {/* Startup plan */}
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="bg-blue-500 text-white text-xs font-medium py-1 px-3 text-center">Popular</div>
-          <div className="p-6">
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-blue-600">Startup</span>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-4xl font-bold">$12</span>
-              <span className="ml-1 text-gray-500 text-sm">/month</span>
-            </div>
-            <p className="mt-2 text-sm text-amber-600 font-medium">Ideal for professionals and small teams</p>
+          {/* Pricing grid with divider lines */}
+          <div className="grid grid-cols-3 border-t border-l border-gray-200">
+            {/* Starter Plan */}
+            <div className="border-r border-gray-200 p-10 pt-14">
+              <h3 className="text-gray-500 mb-4">Starter</h3>
+              <div className="text-4xl font-bold mb-12 flex items-end">
+                <span className="text-black">$49</span>
+                <span className="text-gray-500 text-xl ml-1">/month</span>
+              </div>
 
-            <div className="mt-6">
-              <button className="w-full py-3 px-4 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white">
-                Upgrade to Pro
-              </button>
-            </div>
+              <div className="space-y-5 mb-12">
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Inbox and CRM</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">1 seat</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">1 linked account</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">50 campaign DMs per day</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Up to 5 lists</span>
+                </div>
+              </div>
 
-            <div className="mt-8">
-              <p className="text-sm font-medium text-gray-900 mb-4">Everything in Pro +</p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Custom domain</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">SEO-optimizations</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Auto-generated API docs</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Built-in components library</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">E-commerce integration</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">User authentication system</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Multi-language support</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
-                  </div>
-                  <p className="ml-2 text-sm text-gray-700">Real-time collaboration tools</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Enterprise plan */}
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-blue-600">Enterprise</span>
-            </div>
-            <div className="mt-4 flex items-baseline">
-              <span className="text-4xl font-bold">$24</span>
-              <span className="ml-1 text-gray-500 text-sm">/month</span>
-            </div>
-            <p className="mt-2 text-sm text-amber-600 font-medium">
-              Best for large teams and enterprise-level organizations
-            </p>
-
-            <div className="mt-6">
-              <button className="w-full py-3 px-4 rounded-full text-sm font-medium bg-black hover:bg-gray-900 text-white">
-                Contact Sales
-              </button>
+              <Link
+                href="#"
+                className="flex items-center justify-center py-3 px-6 rounded-md border border-gray-300 text-black hover:bg-gray-100 transition-colors w-full"
+              >
+                Start for free <ChevronRight className="ml-2 w-4 h-4" />
+              </Link>
             </div>
 
-            <div className="mt-8">
-              <p className="text-sm font-medium text-gray-900 mb-4">Everything in Pro +</p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
+            {/* Pro Plan */}
+            <div className="border-r border-gray-200 p-10 pt-14">
+              <h3 className="text-gray-500 mb-4">Pro</h3>
+              <div className="text-4xl font-bold mb-12 flex items-end">
+                <span className="text-black">$79</span>
+                <span className="text-gray-500 text-xl ml-1">/account/mo.</span>
+              </div>
+
+              <div className="space-y-5 mb-12">
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-gray-700">Custom domain</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
+                  <span className="text-gray-600">Inbox and CRM</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-gray-700">SEO-optimizations</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
+                  <div className="flex items-center">
+                    <span className="text-gray-600">+$40 /mo/team member</span>
+                    <div className="ml-2 w-4 h-4 rounded-full border border-gray-300 flex items-center justify-center">
+                      <span className="text-gray-500 text-xs">?</span>
+                    </div>
                   </div>
-                  <p className="ml-2 text-sm text-gray-700">Auto-generated API docs</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
                   </div>
-                  <p className="ml-2 text-sm text-gray-700">Built-in components libraries</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
-                    <Check className="h-3 w-3 text-gray-500" />
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Multiple linked accounts</span>
+                    <div className="ml-2 w-4 h-4 rounded-full border border-gray-300 flex items-center justify-center">
+                      <span className="text-gray-500 text-xs">?</span>
+                    </div>
                   </div>
-                  <p className="ml-2 text-sm text-gray-700">Real-time collaboration tools</p>
-                </li>
-              </ul>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">400 campaign DMs/account/day</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Unlimited lists</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Advanced lead scraping</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Export leads</span>
+                </div>
+              </div>
+
+              <Link
+                href="#"
+                className="flex items-center justify-center py-3 px-6 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors w-full"
+              >
+                Start for free <ChevronRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Custom Plan */}
+            <div className="p-10 pt-14">
+              <h3 className="text-gray-500 mb-4">Custom</h3>
+              <div className="text-4xl font-bold mb-12 flex items-center">
+                <span className="text-black">Contact us</span>
+                <ChevronRight className="ml-2 w-6 h-6" />
+              </div>
+
+              <div className="space-y-5 mb-12">
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Inbox and CRM</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Unlimited seats</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Unlimited linked accounts</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Unlimited campaign DMs</span>
+                    <div className="ml-2 w-4 h-4 rounded-full border border-gray-300 flex items-center justify-center">
+                      <span className="text-gray-500 text-xs">?</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Unlimited lists</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Custom lead scraping</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Custom features</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Dedicated support</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center mr-3 mt-0.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                  </div>
+                  <span className="text-gray-600">Data exports</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

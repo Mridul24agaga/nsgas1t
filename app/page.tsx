@@ -6,7 +6,7 @@ import { HowItWorksSection } from "@/components/how-it-works-section"
 import { FeatureHighlights } from "@/components/feature-highlight"
 import { UserTypesSection } from "@/components/user-types-section"
 import { TestimonialsSection } from "@/components/testimonial-section"
-import PricingSection from "@/components/pricing-section"
+import { PricingSection } from "@/components/pricing-section"
 import { CtaBanner } from "@/components/cta-banner"
 import FAQSection from "@/components/faq-section"
 import Footer from "@/components/footer"
@@ -18,11 +18,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section - Centered LinkedIn Content Landing */}
-      <div className="container mx-auto px-4 py-12 md:py-20 flex justify-center">
-        <div className="w-full max-w-3xl">
           <LinkedInContentLanding />
-        </div>
-      </div>
 
       {/* Trusted By Section */}
       <SimpleTrustedBy />
