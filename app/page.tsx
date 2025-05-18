@@ -1,24 +1,30 @@
-import { Header } from "@/components/header"
+import Header from "@/components/header"
 import { LinkedInContentLanding } from "@/components/linkedin-dashboard"
 import { SimpleTrustedBy } from "@/components/simple-trusted-by"
 import { YuktaraFeatureCards } from "@/components/yuktara-feature-cards"
 import { HowItWorksSection } from "@/components/how-it-works-section"
 import { FeatureHighlights } from "@/components/feature-highlight"
-import { UserTypesSection } from "@/components/user-types-section"
-import { TestimonialsSection } from "@/components/testimonial-section"
 import { PricingSection } from "@/components/pricing-section"
 import { CtaBanner } from "@/components/cta-banner"
 import FAQSection from "@/components/faq-section"
 import Footer from "@/components/footer"
+import StickyBannerDemo from "@/components/stickybanner"
 import SocialComparison from "@/components/howitworksa"
+import { YuktaraTextEffect } from "@/components/yuktara"
+
 export default function Home() {
   return (
     <div className="min-h-screen w-full bg-white">
+      {/* Sticky Banner */}
+
+      {/* Gap between banner and header */}
+      <div className="h-16"></div>
+
       {/* Header */}
       <Header />
 
       {/* Hero Section - Centered LinkedIn Content Landing */}
-          <LinkedInContentLanding />
+      <LinkedInContentLanding />
 
       {/* Trusted By Section */}
       <SimpleTrustedBy />
@@ -35,22 +41,19 @@ export default function Home() {
       <FeatureHighlights />
 
       {/* Testimonials Section */}
-      <SocialComparison/>
+      <SocialComparison />
 
       {/* Pricing Section */}
       <PricingSection />
 
       <FAQSection />
 
-      {/* CTA Banner */}
-      <CtaBanner />
-
       <Footer />
-      <div className="relative w-full py-16 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-[180px] font-bold text-black opacity-10 select-none">YUKTARA</p>
-        </div>
+      {/* YUKTARA Text Effect */}
+      <div className="relative w-full py-8 md:py-12 lg:py-16 overflow-hidden">
+        <YuktaraTextEffect />
       </div>
+     
     </div>
   )
 }

@@ -1,21 +1,28 @@
-import { Flame } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   return (
     <footer className="bg-white py-16 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 relative z-10">
           {/* Brand column */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
-              <Flame className="h-6 w-6 text-orange-500" />
-              <span className="font-bold text-xl">Yuktara</span>
+          <div className="col-span-2 sm:col-span-3 md:col-span-1">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="p-1.5 rounded-lg">
+                {/* Logo image can be placed here */}
+                <Image src="/yuktara.png" alt="Logo" width={214} height={214} className="h-6 w-auto" />
+              </div>
             </div>
-            <p className="text-gray-600 mb-6">The easiest way to extract data from the web</p>
+            <p className="text-gray-600 mb-6 text-sm md:text-base">The easiest way to extract data from the web</p>
 
             {/* Social icons */}
-            <div className="flex gap-4 mb-8">
-              <a href="#" className="text-gray-700 hover:text-gray-900">
+            <div className="flex gap-5 mb-8">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-orange-500 transition-colors duration-200"
+                aria-label="Twitter"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -30,7 +37,11 @@ export default function Footer() {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                 </svg>
               </a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-orange-500 transition-colors duration-200"
+                aria-label="GitHub"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -45,7 +56,11 @@ export default function Footer() {
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
               </a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-orange-500 transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -62,7 +77,11 @@ export default function Footer() {
                   <circle cx="4" cy="4" r="2"></circle>
                 </svg>
               </a>
-              <a href="#" className="text-gray-700 hover:text-gray-900">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-orange-500 transition-colors duration-200"
+                aria-label="Medium"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -80,126 +99,142 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-
           </div>
 
           {/* Links columns */}
-          <div className="md:col-span-1">
-            <h3 className="font-medium text-gray-900 mb-4">Product</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1">
+            <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Playground
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Extract
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Templates
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Changelog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-1">
-            <h3 className="font-medium text-gray-900 mb-4">Documentation</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1">
+            <h3 className="font-semibold text-gray-900 mb-4">Documentation</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Getting Started
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   API Reference
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Integrations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Examples
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   SDKs
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-1">
-            <h3 className="font-medium text-gray-900 mb-4">Company</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1">
+            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Affiliate Program
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   Student Program
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
                   API Status
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-1">
-            <h3 className="font-medium text-gray-900 mb-4">Legal</h3>
-            <ul className="space-y-3">
+          <div className="col-span-1">
+            <h3 className="font-semibold text-gray-900 mb-4">Legal</h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="/terms-and-condition" className="text-gray-600 hover:text-gray-900">
+                <Link
+                  href="/terms-and-condition"
+                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                >
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy-policy" className="text-gray-600 hover:text-gray-900">
+                <Link
+                  href="/privacy-policy"
+                  className="text-gray-600 hover:text-orange-500 transition-colors duration-200"
+                >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
-             
+              <li>
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
+                  GDPR Compliance
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
+
+        {/* Copyright bar */}
+        <div className="mt-16 pt-8 border-t border-gray-200 text-center text-sm text-gray-500 relative z-10">
+          <p>© {new Date().getFullYear()} Yuktara. All rights reserved.</p>
+        </div>
       </div>
 
-      {/* Large watermark text */}
-      <div className="absolute bottom-0 left-0 right-0 text-gray-100 text-[180px] font-bold leading-none opacity-20 select-none overflow-hidden whitespace-nowrap text-center">
-        YUKTARA
-      </div>
+    
     </footer>
   )
 }
